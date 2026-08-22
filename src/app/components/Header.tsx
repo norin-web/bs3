@@ -1,0 +1,129 @@
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+
+export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
+
+  const navLinks = [
+    { to: "/", label: "Home" },
+    { to: "/app", label: "App" },
+    { to: "/projects", label: "Projects" },
+    { to: "/about", label: "About" },
+    { to: "/support", label: "Support" },
+  ];
+
+  const isHome = location.pathname === "/";
+  const solidBg = isScrolled
+    ? "bg-white border-b border-[#E0E0E0]"
+    : isHome
+    ? "bg-white border-b border-[#E0E0E0]"
+    : "bg-white border-b border-[#E0E0E0]";
+  const textClass = "text-[#0a0a0a]";
+  const logoClass = "text-[#0a0a0a]";
+
+  return (
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${solidBg}`}
+      >
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <Link
+              to="/"
+              className={`font-black text-[14px] uppercase tracking-[0.08em] transition-colors duration-300 ${logoClass}`}
+              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "0.06em" }}
+            >
+              PAR<span style={{ color: "#B5920A" }}>–</span>NEPAR
+            </Link>
+
+            {/* Desktop nav */}
+            <nav className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`text-[11px] font-semibold uppercase tracking-[0.08em] transition-colors duration-200 ${textClass} ${
+                    location.pathname === link.to ? "opacity-30" : "opacity-100"
+                  } hover:opacity-50`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
+            {/* CTA */}
+            <div className="hidden md:block">
+              <Link
+                to="/contact"
+                className="inline-block px-[22px] py-[10px] text-[11px] font-semibold uppercase tracking-[0.08em] border border-[#0a0a0a] bg-[#0a0a0a] text-white transition-colors duration-200 hover:bg-[#333] hover:border-[#333]"
+                style={{ borderRadius: "999px" }}
+              >
+                Get in touch
+              </Link>
+            </div>
+
+            {/* Mobile toggle */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`md:hidden p-1 transition-colors duration-200 ${textClass}`}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile drawer */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-white md:hidden"
+            style={{ top: "64px" }}
+          >
+            <nav className="flex flex-col px-6 pt-8 pb-6 gap-6 border-t border-[#E0E0E0]">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="text-[#0a0a0a] text-2xl font-black uppercase tracking-tight"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="mt-4 pt-6 border-t border-[#E0E0E0]">
+                <Link
+                  to="/contact"
+                  className="inline-block w-full text-center px-6 py-4 bg-[#0a0a0a] text-white text-[12px] font-semibold uppercase tracking-[0.08em] hover:bg-[#333] transition-colors duration-200"
+                  style={{ borderRadius: "999px" }}
+                >
+                  Get in touch
+                </Link>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
