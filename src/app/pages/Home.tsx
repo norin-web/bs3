@@ -274,7 +274,7 @@ export default function Home() {
           className="absolute inset-0"
         >
           <img
-            src="/images/hero-phone.jpg"
+            src={import.meta.env.BASE_URL + "images/hero-phone.jpg"}
             alt=""
             aria-hidden
             style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}

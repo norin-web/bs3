@@ -20,7 +20,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "bose-sound-controller",
-    coverImage: "/images/hero-phone.jpg",
+    coverImage: "images/hero-phone.jpg",
     name: "Bose Sound Controller",
     tagline: "Complete iOS controller for Bose audio devices",
     year: "2025",
@@ -54,7 +54,7 @@ export const projects: Project[] = [
   },
   {
     slug: "splitly",
-    coverImage: "/images/cover-splitly.jpg",
+    coverImage: "images/cover-splitly.jpg",
     name: "Splitly",
     tagline: "Split expenses with your group. Zero friction.",
     year: "2023",
@@ -87,7 +87,7 @@ export const projects: Project[] = [
   },
   {
     slug: "waymark",
-    coverImage: "/images/cover-waymark.jpg",
+    coverImage: "images/cover-waymark.jpg",
     name: "Waymark",
     tagline: "Log your travels. Keep the memory.",
     year: "2022",
@@ -120,7 +120,7 @@ export const projects: Project[] = [
   },
   {
     slug: "focusd",
-    coverImage: "/images/cover-focusd.jpg",
+    coverImage: "images/cover-focusd.jpg",
     name: "Focusd",
     tagline: "Do one thing. Then the next.",
     year: "2024",

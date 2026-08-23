@@ -5,11 +5,11 @@ import { Marquee } from "../components/Marquee";
 const APP_STORE = "https://apps.apple.com/app/id6803135475";
 
 const screens = [
-  { src: "/images/screen1.jpg", label: "Listen", desc: "Music playback" },
-  { src: "/images/screen2.jpg", label: "Device", desc: "Device discovery" },
-  { src: "/images/screen3.jpg", label: "Playback", desc: "Full controls" },
-  { src: "/images/screen4.jpg", label: "Settings", desc: "Audio settings" },
-  { src: "/images/screen5.jpg", label: "Library", desc: "Browse content" },
+  { src: import.meta.env.BASE_URL + "images/screen1.jpg", label: "Listen", desc: "Music playback" },
+  { src: import.meta.env.BASE_URL + "images/screen2.jpg", label: "Device", desc: "Device discovery" },
+  { src: import.meta.env.BASE_URL + "images/screen3.jpg", label: "Playback", desc: "Full controls" },
+  { src: import.meta.env.BASE_URL + "images/screen4.jpg", label: "Settings", desc: "Audio settings" },
+  { src: import.meta.env.BASE_URL + "images/screen5.jpg", label: "Library", desc: "Browse content" },
 ];
 
 const features = [
@@ -30,7 +30,7 @@ function HeroImage() {
     <div ref={ref} className="relative w-full overflow-hidden" style={{ height: "100vh" }}>
       <motion.div style={{ y }} className="absolute inset-0 scale-110">
         <img
-          src="/images/app-lifestyle.jpg"
+          src={import.meta.env.BASE_URL + "images/app-lifestyle.jpg"}
           alt="Bose Sound Controller in use"
           style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
         />
@@ -222,7 +222,7 @@ export default function AppStore() {
               style={{ minHeight: "380px", background: "#111" }}
             >
               <img
-                src="/images/app-lifestyle.jpg"
+                src={import.meta.env.BASE_URL + "images/app-lifestyle.jpg"}
                 alt=""
                 aria-hidden
                 style={{

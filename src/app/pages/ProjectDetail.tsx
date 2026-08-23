@@ -26,7 +26,7 @@ export default function ProjectDetail() {
         {project.coverImage && (
           <>
             <img
-              src={project.coverImage}
+              src={import.meta.env.BASE_URL + project.coverImage}
               alt=""
               aria-hidden
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}

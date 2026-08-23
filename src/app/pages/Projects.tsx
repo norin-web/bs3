@@ -36,7 +36,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           {/* Cover photo */}
           {project.coverImage && (
             <img
-              src={project.coverImage}
+              src={import.meta.env.BASE_URL + project.coverImage}
               alt=""
               aria-hidden
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
@@ -167,7 +167,7 @@ export default function Projects() {
         {/* Full-bleed photo */}
         <div className="absolute inset-0">
           <img
-            src="/images/projects-hero.jpg"
+            src={import.meta.env.BASE_URL + "images/projects-hero.jpg"}
             alt=""
             aria-hidden
             style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", display: "block" }}
@@ -229,7 +229,7 @@ export default function Projects() {
                 style={{ width: "48%", pointerEvents: "none" }}
               >
                 <img
-                  src="/images/hero-phone.jpg"
+                  src={import.meta.env.BASE_URL + "images/hero-phone.jpg"}
                   alt=""
                   aria-hidden
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center", display: "block" }}

@@ -5,11 +5,11 @@ import { Marquee } from "../components/Marquee";
 const APP_STORE = "https://apps.apple.com/app/id6803135475";
 
 const screens = [
-  { src: "/images/screen1.jpg", n: "01", label: "Listen", desc: "Your audio hub" },
-  { src: "/images/screen2.jpg", n: "02", label: "Device", desc: "Find & connect" },
-  { src: "/images/screen3.jpg", n: "03", label: "Playback", desc: "Full controls" },
-  { src: "/images/screen4.jpg", n: "04", label: "Settings", desc: "Sound tuning" },
-  { src: "/images/screen5.jpg", n: "05", label: "Library", desc: "Browse music" },
+  { src: import.meta.env.BASE_URL + "images/screen1.jpg", n: "01", label: "Listen", desc: "Your audio hub" },
+  { src: import.meta.env.BASE_URL + "images/screen2.jpg", n: "02", label: "Device", desc: "Find & connect" },
+  { src: import.meta.env.BASE_URL + "images/screen3.jpg", n: "03", label: "Playback", desc: "Full controls" },
+  { src: import.meta.env.BASE_URL + "images/screen4.jpg", n: "04", label: "Settings", desc: "Sound tuning" },
+  { src: import.meta.env.BASE_URL + "images/screen5.jpg", n: "05", label: "Library", desc: "Browse music" },
 ];
 
 const PHONE_W = 200;
@@ -28,7 +28,7 @@ function Hero() {
       {/* Parallax bg */}
       <motion.div style={{ y: imgY }} className="absolute inset-0 scale-110">
         <img
-          src="/images/app-hero.jpg"
+          src={import.meta.env.BASE_URL + "images/app-hero.jpg"}
           alt=""
           aria-hidden
           style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "70% center", display: "block" }}
