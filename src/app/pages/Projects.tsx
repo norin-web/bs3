@@ -334,9 +334,9 @@ export default function Projects() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {[
-              { src: "/images/team-1.jpg", pos: "center center" },
-              { src: "/images/team-2.jpg", pos: "center center" },
-              { src: "/images/team-3.jpg", pos: "center center" },
+              { src: import.meta.env.BASE_URL + "images/team-1.jpg", pos: "center center" },
+              { src: import.meta.env.BASE_URL + "images/team-2.jpg", pos: "center center" },
+              { src: import.meta.env.BASE_URL + "images/team-3.jpg", pos: "center center" },
             ].map((img, i) => (
               <motion.div
                 key={i}
